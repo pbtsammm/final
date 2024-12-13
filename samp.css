@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Poppins:wght@300;500;700&display=swap');
+
+body {
+    background-color: black;
+    color: white; /* Make the text white so it stands out against the black background */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:active {
+    text-decoration: none; 
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px 9%;
+    background: rgba(4, 165, 4, 0.85);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: .2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.navbar a {
+    font-family: 'Slackey', cursive;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 20px;
+}
+
+.navbar a:hover {
+    color: #000000;
+}
+
+.navbar a:active {
+    color: #067b13;
+    text-decoration: none;
+}
+
+
+.home {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+
+.home-info h1 {
+    font-size: 55px;
+}
+
+.home-info h2 {
+    display: inline block;
+    font-size: 32px;
+    margin-top: -10px;
+}
+
+.home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px #00cc18;
+    animation: display-text 12s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text {
+    
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+.home-info h2 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid #00cc18;
+    color: #00cc18;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 3s linear infinite;
+}
+
+@keyframes fill-text {
+    10%, 
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+.home-info p {
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #00cc18;
+    border: 2px solid #00cc18;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #00cc18;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #58ba62;
+    box-shadow: none;
+}
+
+.home-info .btn-sci .sci {
+    margin-left: 30px;
+}
+
+.home-info .btn-sci .sci a{
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid #00cc18;
+    border-radius: 50%;
+    font-size: 20px;
+    color:#00cc18;
+    margin: 0 8px;
+    transition: .5s;
+}
+
+.home-info .btn-sci .sci a:hover {
+    background: #00cc18;
+    color: #ffffff;
+    box-shadow: 0 0 10px #00cc18;
+}
+
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content:  '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, 
+    transparent, #00cc18);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    border: .1px solid #000000;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-img .img-box .img-item img {
+    position: absolute;
+    top: 45px;
+    display: block;
+    width: 115%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    transform: translateY(-100%);
+    animation: show-bars .1s ease-in-out forwards; /* Reduced the duration to 0.1s */
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.skills {
+    display: flex;
+    flex-direction: row; /* Align content horizontally */
+    justify-content: space-between; /* Distribute space between image and content */
+    align-items: center; /* Vertically center content */
+    gap: 2rem; /* Space between the image and text */
+    background: var(--second-bg-color); /* Change this to your preferred background color */
+    padding: 5rem 2rem; /* Add padding for more space around content */
+    margin: 0 2rem;
+    text-align: left; /* Align text to the left for the entire section */
+    position: relative; /* To ensure the bars appear behind the content */
+}
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1; /* Ensure bars appear behind the content */
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    transform: translateY(-100%);
+    animation: show-bars .1s ease-in-out forwards; /* Faster animation (0.1s duration) */
+    animation-delay: calc(.1s * var(--i)); /* Staggered delay */
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+/* Skills Section Image with Green Border and Blur Effect */
+.skills-img img {
+    width: 35vw; /* Adjust the image size */
+    border-radius: 55%; /* Make the image a circle */
+    border: 3px solid #00cc18; /* Green border around the image */
+    box-shadow: 0 0 20px rgba(0, 204, 24, 0.7); /* Green blur effect around the image */
+    transition: box-shadow 0.5s ease-in-out; /* Smooth transition for the blur effect */
+    margin-top: 2rem;
+}
+
+/* Hover effect for blur animation */
+.skills-img img:hover {
+    box-shadow: 0 0 40px rgba(0, 204, 24, 0.9); /* Increase blur effect on hover */
+}
+
+@keyframes slideInFromAbove {
+    0% {
+        opacity: 0; /* Initially invisible */
+        transform: translateY(-100px); /* Start off-screen above */
+        filter: blur(10px); /* Start with blur */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* End at the normal position */
+        filter: blur(0); /* End with no blur */
+    }
+}
+
+.heading {
+    font-size: 3.5rem; /* Heading font size */
+    margin-top: 4rem;
+    margin-bottom: 2rem; /* Space below the heading */
+    animation: slideInFromAbove 1s ease-out; /* Apply the slide-in and blur animation */
+}
+
+
+
+.skills-content h2 {
+    text-align: left;
+    line-height: 1.2;
+    font-size: 3.5rem; /* Adjust font size */
+    color: #ffffff; /* Adjust text color */
+    margin-bottom: 1.5rem; /* Add space below the heading */
+}
+
+.skills-content h3 {
+    font-size: 30px; /* Adjust the font size */
+    font-weight: bold;
+    color: #00cc18; /* Text color */
+    text-shadow: 2px 2px 4px rgba(5, 131, 20, 0.5), -2px -2px 4px rgba(50, 227, 71, 0.5); /* Shadow effect around text */
+    margin-bottom: 1.5rem; /* Space below the subheading */
+}
+
+.skills-content p {
+    font-size: 1.3rem;
+    margin: 2rem 0 3rem; /* Add space around the paragraph */
+    color: #ffffff; /* Adjust text color */
+    max-width: 800px; /* Optional: Set a maximum width to prevent the text from being too wide */
+    text-align: justify;
+}
+
+.skills-content .btn-skills {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 30px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+/* Styling the items to not look like buttons or links */
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem; /* Set the font size */
+    color: #00cc18; /* Set text color to green by default */
+    font-weight: bold; /* Make text bold */
+    padding: 10px 20px; /* Add padding around the content */
+    border: 2px solid white; /* Set the default border to white */
+    border-radius: 30px; /* Create an oval shape with rounded corners */
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Smooth transition for color and border */
+}
+
+/* Optional: Change icon size */
+.skill-item i {
+    font-size: 2rem; /* Adjust icon size */
+    color: #00cc18; /* Set icon color to green by default */
+}
+
+/* Hover effect */
+.skill-item:hover {
+    color: white; /* Change text color to white on hover */
+    border-color: #00cc18; /* Change border color to green on hover */
+}
+
+/* Optional: Hover effect for icons */
+.skill-item:hover i {
+    color: white; /* Change icon color to white on hover */
+}
+
+/* Animation for the heading */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.projects h2 {
+    margin-bottom: 5rem;
+    margin-top: 10rem; /* Space between the navbar and the heading */
+    text-align: center; /* Center the heading */
+    animation: fadeInUp .5s ease-out; /* Apply animation */
+    color: #00a914; /* Change text color to green (or any color you like) */
+}
+
+
+.projects-container {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: center; /* Center the images horizontally within the container */
+    align-items: center; /* Center the images vertically within the container */
+    gap: 3rem; /* Space between each project box */
+    padding: 2rem; /* Add padding around the grid */
+    flex-wrap: wrap; /* Allow the images to wrap onto new lines on smaller screens */
+}
+
+.projects-container .projects-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1.5rem rgba(54, 65, 55, 0.7); /* Enhanced shadow for better depth */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center the image horizontally within the box */
+    align-items: center; /* Center the image vertically within the box */
+    background: #ffffff; /* Optional: Add a background color */
+    height: 500px; /* Fixed height for uniform box sizing */
+    width: 500px; /* Fixed width for uniform box sizing */
+    margin: 0 auto; /* Center each box within the flex container */
+}
+
+.projects-box img {
+    width: 100%; /* Make the image take up 100% of the width of the container */
+    height: 100%; /* Make the image take up 100% of the height of the container */
+    object-fit: cover; /* Ensure the image maintains its aspect ratio without distortion */
+    object-position: center; /* Center the image within the container */
+    z-index: 0; /* Keep the image behind the text */
+}
+
+.projects-box .projects-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(74, 83, 75, 0.7), rgba(95, 103, 96, 0.7)); /* Gradient with transparency */
+    display: flex;
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    z-index: 1; /* Ensure this layer with text is above the image */
+    color: #fff; /* Text color */
+    transition: all 0.3s ease-in-out; /* Add smooth transition for hover effects */
+}
+
+.projects-box:hover .projects-layer {
+    background: linear-gradient(45deg, rgba(0, 103, 12, 0.9), rgba(120, 136, 122, 0.9)); /* Highlight effect on hover */
+}
+
+.projects-layer h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem; /* Slightly larger font for heading */
+    margin: 1rem 0;
+}
+
+.projects-layer p {
+    font-size: 1.2rem; /* Adjust font size for better readability */
+    margin: 1rem 0;
+}
+
+.projects-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: rgba(0, 188, 22, 0.7); /* Semi-transparent green */
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.projects-layer a:hover {
+    background: rgba(255, 255, 255, 0.9); /* Darker green on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.projects-layer a i {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.9); /* White icon */
+}
+
+.sdg {
+    display: flex; /* Align elements horizontally */
+    flex-direction: column; /* Stack elements vertically for smaller screens */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding: 2rem;
+    gap: 2rem;
+    background-color: #00000008;
+    text-align: center; /* Center all text inside .sdg */
+}
+
+/* Heading Styling */
+.sdg .heading {
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    margin-top: 8vw;
+    animation: headingAnimation 2s ease-out forwards; /* Apply the animation */
+}
+
+/* Keyframes for the heading animation */
+@keyframes headingAnimation {
+    0% {
+        transform: scale(0); /* Start the heading at 0 scale */
+        opacity: 0; /* Initially invisible */
+        letter-spacing: -0.5rem; /* Start with tighter letter spacing */
+    }
+    50% {
+        transform: scale(1.1); /* Scale the heading to 110% */
+        opacity: 1; /* Make it fully visible */
+        letter-spacing: 0rem; /* Normal letter spacing */
+    }
+    100% {
+        transform: scale(1); /* Return to normal size */
+        opacity: 1; /* Remain fully visible */
+        letter-spacing: 0rem; /* Normal letter spacing */
+    }
+}
+
+/* Image Styling for First Image (sdg-img) */
+.sdg-img {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    padding: 0.5rem; /* Space for the green border effect */
+    border: 2px solid #008d10; /* Green border around the image */
+    box-shadow: 0 0 20px rgba(0, 204, 24, 0.7); /* Green blur effect */
+    margin: 2rem auto; /* Center the image */
+    width: 100%; /* Set to fill the container */
+    max-width: 1000px; /* Restrict the container to a max-width */
+    height: auto;
+}
+
+.sdg-img img {
+    width: 100%; /* Image fills the width of the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible */
+    transition: box-shadow 0.5s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Optional Hover Effect for the Image */
+.sdg-img img:hover {
+    box-shadow: 0 0 40px rgba(0, 204, 24, 0.9); /* Enhanced blur effect on hover */
+}
+.sdg-content .heading {
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    margin-top: .5vw;
+}
+/* Paragraph Styling */
+.sdg-content p {
+    font-size: 1.3rem;
+    margin: 2rem 0 3rem; /* Add space around the paragraph */
+    color: #ffffff; /* Adjust text color */
+    max-width: 1000px; /* Optional: Set a maximum width to prevent the text from being too wide */
+    text-align: justify; /* Ensure the text is centered */
+    line-height: 1.5; /* Add line height for better readability */
+    width: 100%; /* Allow the paragraph to take full width */
+    margin-left: auto; /* Ensure it's centered */
+    margin-right: auto; /* Ensure it's centered */
+}
+
+/* Highlight Styling */
+.highlight {
+    color: #4CAF50; /* Green color (you can change the color code as needed) */
+    font-weight: bold; /* Optional: makes the text bold */
+}
+
+/* Blockquote Styling */
+blockquote {
+    font-style: italic;
+    color: #00ff1a; /* Slightly gray color for the quote text */
+    border-left: 4px solid #4CAF50; /* Green left border for emphasis */
+    padding-left: 1rem; /* Padding between the border and the quote text */
+    margin: 1.5rem 0; /* Margin around the quote */
+    font-size: 1.2rem; /* Slightly larger font size for the quote */
+    text-align: center; /* Ensure the quote is centered */
+}
+
+/* Styling for the .contact section */
+.contact {
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    padding: 2rem;
+    margin-top: 100px; /* Adjust this value based on navbar height to position below */
+    background-color: #000000; /* Optional background color for the contact section */
+}
+
+/* Heading Styling */
+/* Styling for the .contact section */
+.contact h2 {
+    font-size: 4.5rem; /* Heading font size */
+    margin-top: 2rem; /* Space from the top */
+    margin-bottom: 3rem; /* Space below the heading */
+    text-align: center; /* Center the heading text */
+    color: #ffffff; /* Text color */
+    
+    opacity: 0; /* Start with the heading hidden */
+    transform: translateY(20px); /* Start with the heading slightly below */
+    animation: fadeInUp 1.5s ease-out forwards; /* Apply the animation */
+    animation-delay: 0.2s; /* Optional delay before animation starts */
+}
+
+/* Keyframes for the fade-in and slide-up effect */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Move to normal position */
+    }
+}
+
+
+/* Contact Form Styling */
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Input Box Styling */
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Input and Textarea Styling */
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: #00bd13;
+    background: rgba(213, 215, 214, 0.2);
+    border-radius: .8rem;
+    margin: .7rem 0;
+}
+
+/* Specific Styling for Input */
+.contact form .input-box input {
+    width: 49%; /* Reduce width to allow space for second input */
+}
+
+/* Textarea Styling */
+.contact form textarea {
+    resize: none; /* Disable resizing of the textarea */
+}
+
+/* Style for the mailto link (button container) */
+a.btn {
+    text-decoration: none; /* Remove default underline from link */
+    display: inline-block; /* Makes the link behave like a block-level element */
+    margin: 10px 0; /* Optional: Adds space above/below the button */
+}
+
+/* Submit Button Styling */
+a.btn input[type="submit"] {
+    background-color: #34bb39; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 15px 32px; /* Add padding to the button */
+    text-align: center; /* Center the text inside the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Single Hover Effect for Submit Button */
+a.btn input[type="submit"]:hover {
+    background-color: #000000; /* Lighter background on hover */
+    transform: scale(1.05); /* Slightly increase the size on hover */
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 5%;
+    background: #404140;
+}
+
+.footer-text p {
+    font-size: 1.2rem;
+}
